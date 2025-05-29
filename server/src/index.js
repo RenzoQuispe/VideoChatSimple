@@ -6,6 +6,8 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { probarConexionDB } from './libs/db.js';
 
+import authRoutes from './routes/auth.routes.js';
+
 dotenv.config();
 const PORT_SERVER = process.env.PORT_SERVER;
 
@@ -14,6 +16,9 @@ const app = express();
 app.use(express.json({limit:'50mb'}));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
+//rutas
+app.use("/api/auth", authRoutes);
+//cors
 app.use(
     cors({
         origin: 'http://localhost:5173',

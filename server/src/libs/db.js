@@ -18,8 +18,6 @@ export const probarConexionDB = async () => {
         console.log('Conexión a la base de datos PostgreSQL exitosa');
     } catch (error) {
         console.error('Error de conexión a la base de datos:', error);
-    } finally {
-        pool.end();
     }
 }
 
