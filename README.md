@@ -10,27 +10,30 @@ Servidor web autoalojado en red local con resolución DNS personalizado
                     ┌─────────────────────┐
                     │  Servidor DNS local │◄────────────┐
                     │      (dnsmasq)      |             │
-                    └──────┬──────────────┘             │
-                           │                            │
+                    └─────────┬───────────┘             │
+                              │                         |
                 videochat.local → 192.168.1.10          │
-                           ▼                            │
+                              ▼                         │
                     ┌─────────────────────┐             │
                     │  Servidor web local │             │
                     │    (Node, Apache)   │             │
                     │    HTTPS(mkcert)    │             │
                     └─────────────────────┘             │
                                                         ▼
-                                        ┌──────────────────────────┐
-                                        │  CA instalada en clientes│
-                                        │ (opcional para evitar    │
-                                        │  advertencias HTTPS)     │
-                                        └──────────────────────────┘
+                                            ┌──────────────────────────┐
+                                            │  CA instalada en clientes│
+                                            │ (opcional para evitar    │
+                                            │  advertencias HTTPS)     │
+                                            └──────────────────────────┘
 #### Requerimientos
 - mkcert setup
-.
-├── certs
-│   ├── cert.pem
-│   └── key.pem
+```
+└── VideoChatSimple
+    ├── certs
+    │   ├── cert.pem
+    │   └── key.pem
+```
 
 - .env setup
-PORT=
+
+    PORT=
