@@ -2,13 +2,12 @@ import express from 'express';
 import dotenv from 'dotenv';
 import fs from 'fs';
 import https from 'https';
-import path from 'path';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { probarConexionDB } from './libs/db.js';
 
 dotenv.config();
-const PORT = process.env.PORT;
+const PORT_SERVER = process.env.PORT_SERVER;
 
 // Configurar app
 const app = express();
@@ -28,8 +27,8 @@ const cert = fs.readFileSync('../certs/cert.pem');
 
 // Crear el server HTTPS
 const server = https.createServer({ key, cert }, app);
-server.listen(PORT,'0.0.0.0',() =>{
-    console.log('Server HTTPS ejecutandose en el puerto '+PORT+'. Escuchando en:');
+server.listen(PORT_SERVER,'0.0.0.0',() =>{
+    console.log('Server HTTPS ejecutandose en el puerto '+PORT_SERVER+'. Escuchando en:');
     console.log('https://localhost')
     console.log('https://127.0.0.1') 
     console.log('https://videochat.local')

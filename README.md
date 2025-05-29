@@ -14,11 +14,11 @@ Servidor web autoalojado en red local con resolución DNS personalizado
                               │                         |
                 videochat.local → 192.168.1.10          │
                               ▼                         │
-                    ┌─────────────────────┐             │
-                    │  Servidor web local │             │
-                    │    (Node, Apache)   │             │
-                    │    HTTPS(mkcert)    │             │
-                    └─────────────────────┘             │
+                ┌──────────────────────────┐            │
+                │    Servidor web local    │            │
+                │(Node, Apache, postgresql)│            │
+                │      HTTPS(mkcert)       │            │
+                └──────────────────────────┘            │
                                                         ▼
                                             ┌──────────────────────────┐
                                             │  CA instalada en clientes│
@@ -35,5 +35,11 @@ Servidor web autoalojado en red local con resolución DNS personalizado
 ```
 
 - .env setup
-
-    PORT=
+```
+    PORT_SERVER=
+    DB_USER=
+    DB_PASSWORD=
+    DB_HOST=
+    DB_PORT=
+    DB_NAME=
+```
