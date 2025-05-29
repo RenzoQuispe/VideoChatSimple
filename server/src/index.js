@@ -5,6 +5,7 @@ import https from 'https';
 import path from 'path';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import { probarConexionDB } from './libs/db.js';
 
 dotenv.config();
 const PORT = process.env.PORT;
@@ -33,4 +34,5 @@ server.listen(PORT,'0.0.0.0',() =>{
     console.log('https://127.0.0.1') 
     console.log('https://videochat.local')
     console.log('https://miapp.local') 
+    probarConexionDB()
 })
