@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { axiosInstance } from "../libs/axios.js"
+import { axiosInstance } from "../lib/axios.js"
 import toast from "react-hot-toast";
 
 const baseURL = "https://videochat.local/api";
@@ -52,25 +52,6 @@ export const estadoAuth = create((set, get) => ({  //get para una funcion de est
             toast.error(error.response.data.message);
         } finally {
             set({ isLoggingIn: false });
-        }
-    },
-    actualizarperfil: async ({ id, username, contraseña }) => {
-        try {
-            const response = await axios.put(`http://localhost:3000/usuarios/${id}`, {
-                username,
-                contraseña,
-            });
-
-            set({ usuario: response.data.usuario });
-
-            return { success: true, message: response.data.message };
-        } catch (error) {
-            console.error('Error en actualizarPerfil:', error.response?.data?.message || error.message);
-
-            return {
-                success: false,
-                message: error.response?.data?.message || 'Error al actualizar perfil',
-            };
         }
     },
 })); 

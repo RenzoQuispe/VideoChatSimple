@@ -1,19 +1,41 @@
-import {Route, Routes, Navigate} from "react-router";
-import {Toaster} from "react-hot-toast"
+import { Route, Routes, Navigate } from "react-router";
+// estetica
+import { Loader } from "lucide-react";
+import { Toaster } from "react-hot-toast"
 //Pages
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage";
+import PerfilPage from "./pages/PerfilPage";
+import AjustesPage from "./pages/AjustesPage";
+//estados
+import { estadoAuth } from "./estados/estadoAuth";
+import { useEffect } from "react";
 
 const App = () => {
-  return(
+  const { authUser, checkAuth, isCheckingAuth } = estadoAuth();
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+  console.log({ authUser });
+  // Loader 
+  if (isCheckingAuth && !authUser)
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader className="size-10 animate-spin" />
+      </div>
+    );
+
+  return (
     <div>
       <Routes>
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/register' element={<RegisterPage/>}/>
+        <Route path='/' element={authUser ? <HomePage /> : <Navigate to='/login'/> } />
+        <Route path='/login' element={!authUser ? <LoginPage /> : <Navigate to='/'/>} />
+        <Route path='/register' element={!authUser ? <RegisterPage /> : <Navigate to='/'/>} />
+        <Route path='/ajustes' element={authUser ? <AjustesPage/> : <Navigate to='/login'/>}/>
+        <Route path='/perfil' element={authUser ? <PerfilPage/> : <Navigate to='/login'/>}/>
       </Routes>
-      <Toaster/>
+      <Toaster />
     </div>
   )
 }

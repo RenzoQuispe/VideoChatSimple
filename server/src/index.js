@@ -13,11 +13,6 @@ const PORT_SERVER = process.env.PORT_SERVER;
 
 // Configurar app
 const app = express();
-app.use(express.json({limit:'50mb'}));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
-app.use(cookieParser());
-//rutas
-app.use("/api/auth", authRoutes);
 //cors
 app.use(
     cors({
@@ -25,6 +20,14 @@ app.use(
         credentials: true
     })
 );
+//
+app.use(cookieParser());
+app.use(express.json({limit:'50mb'}));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
+//rutas
+app.use("/api/auth", authRoutes);
+
 
 // Leer los certificados
 const key = fs.readFileSync('../certs/key.pem');

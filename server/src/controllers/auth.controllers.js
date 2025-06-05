@@ -53,6 +53,8 @@ export const login = async (req, res) => {
         }
         const usuario = result.rows[0];
         // comparar contraseñas usando bcrypt
+        console.log(usuario)
+        console.log(contraseña)
         const match = await bcrypt.compare(contraseña, usuario.contraseña);
 
         if (!match) {
