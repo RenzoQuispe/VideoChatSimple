@@ -9,11 +9,11 @@ export const createAccessToken = (userId, res) => {
 
     // Mandar el token atraves de una cookie
     res.cookie("jwt_", token, {
-        httpOnly: true,
-        secure: false, 
-        sameSite: "lax",  
         maxAge: 7 * 24 * 60 * 60 * 1000,
-      });
+        httpOnly: true,
+        sameSite: "None", // None, Lax o strict
+        secure: true
+    }); 
 
     return token;
 
