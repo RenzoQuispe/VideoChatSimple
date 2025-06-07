@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { estadoAuth } from "../estados/estadoAuth";
 import { Link } from "react-router";
-import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, Mail} from "lucide-react";
 
 const LoginPage = () => {
   const [showContraseña, setShowContraseña] = useState(false);
@@ -27,7 +27,7 @@ const LoginPage = () => {
                 className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20
               transition-colors"
               >
-                <MessageSquare className="w-6 h-6 text-primary" />
+                <img src="/icono.png"/>
               </div>
               <h1 className="text-2xl font-bold mt-2">¡Bienvenido! - Login</h1>
               <p className="text-base-content/60"></p>
@@ -83,7 +83,7 @@ const LoginPage = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-primary w-full" disabled={isLoggingIn}>
+            <button type="submit" className="btn btn-primary w-full hover:bg-blue-200 rounded-2xl px-2 py-2" disabled={isLoggingIn}>
               {isLoggingIn ? (
                 <>
                   <Loader2 className="h-5 w-5 animate-spin" />
@@ -98,7 +98,7 @@ const LoginPage = () => {
           <div className="text-center">
             <p className="text-base-content/60">
               ¿No tienes cuenta?{" "}
-              <Link to="/register" className="link link-primary">
+              <Link to="/register" className="link link-primary hover:bg-blue-200 rounded-2xl px-2 py-2">
                 Crear cuenta
               </Link>
             </p>

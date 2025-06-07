@@ -14,10 +14,12 @@ import { useEffect } from "react";
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = estadoAuth();
+  
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
   console.log({ authUser });
+
   // Loader 
   if (isCheckingAuth && !authUser)
     return (
