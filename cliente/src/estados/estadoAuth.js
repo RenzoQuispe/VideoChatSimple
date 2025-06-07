@@ -6,7 +6,7 @@ const baseURL = "https://videochat.local/api";
 
 export const estadoAuth = create((set, get) => ({  //get para una funcion de estadoAuth dentro de una funcion de estadoAuth
     authUser: null,
-    isCheckingAuth: null,
+    isCheckingAuth: true,
     isLoggingIn: false,
     isSigningUp: false,
     isUpdatingprofile: false,
