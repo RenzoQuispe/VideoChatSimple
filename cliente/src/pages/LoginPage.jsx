@@ -40,13 +40,13 @@ const LoginPage = () => {
               <label className="label">
                 <span className="label-text font-medium">Email</span>
               </label>
-              <div className="relative">
+              <div className="relative mt-3">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Mail className="h-5 w-5 text-base-content/40" />
                 </div>
                 <input
                   type="email"
-                  className={`input input-bordered w-full pl-10`}
+                  className={`input input-bordered border-1 rounded-md w-full pl-10`}
                   placeholder="renzo@ejemplo.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -58,13 +58,13 @@ const LoginPage = () => {
               <label className="label">
                 <span className="label-text font-medium">Password</span>
               </label>
-              <div className="relative">
+              <div className="relative mt-3">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Lock className="h-5 w-5 text-base-content/40" />
                 </div>
                 <input
                   type={showContraseña ? "text" : "password"}
-                  className={`input input-bordered w-full pl-10`}
+                  className={`input input-bordered border-1 rounded-md w-full pl-10`}
                   placeholder="••••••••"
                   value={formData.contraseña}
                   onChange={(e) => setFormData({ ...formData, contraseña: e.target.value })}
@@ -83,7 +83,7 @@ const LoginPage = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-primary w-full hover:bg-blue-200 rounded-2xl px-2 py-2" disabled={isLoggingIn}>
+            <button type="submit" className="btn btn-primary w-full bg-gray-200 hover:bg-blue-200 rounded-2xl px-2 py-2" disabled={isLoggingIn}>
               {isLoggingIn ? (
                 <>
                   <Loader2 className="h-5 w-5 animate-spin" />
@@ -98,7 +98,7 @@ const LoginPage = () => {
           <div className="text-center">
             <p className="text-base-content/60">
               ¿No tienes cuenta?{" "}
-              <Link to="/register" className="link link-primary hover:bg-blue-200 rounded-2xl px-2 py-2">
+              <Link to="/register" className="link link-primary bg-gray-200 hover:bg-blue-200 rounded-2xl px-2 py-2">
                 Crear cuenta
               </Link>
             </p>
