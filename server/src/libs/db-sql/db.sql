@@ -1,4 +1,8 @@
+-- Ejemplo de base de datos postgresql usada
 -- Crear la base de datos y conectarse a ella antes de crear las tablas
+CREATE USER admin_videochat WITH PASSWORD '123456789';
+CREATE DATABASE videochatsimple OWNER admin_videochat;
+GRANT ALL PRIVILEGES ON DATABASE videochatsimple TO admin_videochat;
 -- Tabla de usuarios
 CREATE TABLE usuarios (
   id SERIAL PRIMARY KEY,
@@ -32,3 +36,8 @@ CREATE TABLE mensajes (
   contenido TEXT NOT NULL,
   enviado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+-- Permisos
+GRANT ALL PRIVILEGES ON TABLE salas TO admin_videochat;
+GRANT ALL PRIVILEGES ON TABLE mensajes TO admin_videochat;
+GRANT ALL PRIVILEGES ON TABLE usuarios TO admin_videochat;
+GRANT ALL PRIVILEGES ON TABLE usuarios_salas TO admin_videochat;
