@@ -34,8 +34,10 @@ export const register = async (req, res) => {
             'INSERT INTO usuarios (username, email, contraseña) VALUES ($1, $2, $3) RETURNING *',
             [username, email, hashedContraseña]
         );
-        console.log(result.rows)
-        createAccessToken(result.id, res);
+        const nuevoUsuario = result.rows[0];
+        console.log("Nuevo usuario:",nuevoUsuario)
+        console.log("id nuevo usuario:",nuevoUsuario.id)
+        createAccessToken(nuevoUsuario.id, res);
 
         res.status(201).json({ result });
     } catch (err) {
