@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import { probarConexionDB } from './libs/db.js';
 
 import authRoutes from './routes/auth.routes.js';
+import salaRoutes from './routes/sala.routes.js';
 
 dotenv.config();
 const PORT_SERVER = process.env.PORT_SERVER;
@@ -27,7 +28,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 //rutas
 app.use("/api/auth", authRoutes);
-
+app.use("/api/sala",salaRoutes);
 
 // Leer los certificados
 const key = fs.readFileSync('../certs/key.pem');
