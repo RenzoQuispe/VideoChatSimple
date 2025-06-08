@@ -6,8 +6,6 @@ import { Toaster } from "react-hot-toast"
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage";
-import PerfilPage from "./pages/PerfilPage";
-import AjustesPage from "./pages/AjustesPage";
 //estados
 import { estadoAuth } from "./estados/estadoAuth";
 import { useEffect } from "react";
@@ -34,8 +32,6 @@ const App = () => {
         <Route path='/' element={authUser ? <HomePage /> : <Navigate to='/login'/> } />
         <Route path='/login' element={!authUser ? <LoginPage /> : <Navigate to='/'/>} />
         <Route path='/register' element={!authUser ? <RegisterPage /> : <Navigate to='/'/>} />
-        <Route path='/ajustes' element={authUser ? <AjustesPage/> : <Navigate to='/login'/>}/>
-        <Route path='/perfil' element={authUser ? <PerfilPage/> : <Navigate to='/login'/>}/>
       </Routes>
       <Toaster />
     </div>
