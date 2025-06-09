@@ -1,8 +1,10 @@
 import { estadoAuth } from "../estados/estadoAuth";
+import Navbar from "../componentes/Navbar";
 const Perfil = () => {
     const { authUser } = estadoAuth();
     return (
         <div>
+            <Navbar/>
             <img
                 src={authUser.fotoperfil || "fotodefault.png"} //https://videochat.local/uploads/imagen.jpeg
                 alt="Foto de perfil"

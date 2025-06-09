@@ -6,13 +6,16 @@ import { Toaster } from "react-hot-toast"
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage";
+import Perfil from "./pages/Perfil";
+import Ajustes from "./pages/Ajustes";
+import ListaSalas from "./pages/ListaSalas";
 //estados
 import { estadoAuth } from "./estados/estadoAuth";
 import { useEffect } from "react";
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = estadoAuth();
-  
+
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
@@ -29,9 +32,12 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path='/' element={authUser ? <HomePage /> : <Navigate to='/login'/> } />
-        <Route path='/login' element={!authUser ? <LoginPage /> : <Navigate to='/'/>} />
-        <Route path='/register' element={!authUser ? <RegisterPage /> : <Navigate to='/'/>} />
+        <Route path='/' element={authUser ? <HomePage /> : <Navigate to='/login' />} />
+        <Route path='/login' element={!authUser ? <LoginPage /> : <Navigate to='/' />} />
+        <Route path='/register' element={!authUser ? <RegisterPage /> : <Navigate to='/' />} />
+        <Route path='/perfil' element={authUser ? <Perfil /> : <Navigate to='/' />} />
+        <Route path='/ajustes' element={authUser ? <Ajustes /> : <Navigate to='/' />} />
+        <Route path='/salas' element={authUser ? <ListaSalas /> : <Navigate to='/' />} />
       </Routes>
       <Toaster />
     </div>

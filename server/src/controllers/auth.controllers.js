@@ -35,8 +35,8 @@ export const register = async (req, res) => {
             [username, email, hashedContraseña]
         );
         const nuevoUsuario = result.rows[0];
-        console.log("Nuevo usuario:",nuevoUsuario)
-        console.log("id nuevo usuario:",nuevoUsuario.id)
+        console.log("Nuevo usuario:", nuevoUsuario)
+        console.log("id nuevo usuario:", nuevoUsuario.id)
         createAccessToken(nuevoUsuario.id, res);
 
         res.status(201).json({ result });
@@ -79,8 +79,15 @@ export const login = async (req, res) => {
 };
 export const logout = (req, res) => {
     try {
-        res.cookie("jwt_", "", { maxAge: 0 }); // "jwt_" definido en jwt_utils.js
+        res.cookie('jwt_', '', {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None',
+            expires: new Date(0),
+            maxAge: 0
+        });
         res.status(200).json({ message: "Cerró cesión correactamente :D" });
+
     } catch (error) {
         console.log("Error logout", error.message);
         res.status(500).json({ message: "Server Error :/" });

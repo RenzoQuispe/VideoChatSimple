@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { estadoSalas } from "../estados/estadoSalas.js";
-
+import Navbar from "../componentes/Navbar.jsx";
 const ListaSalas = () => {
     const { Salas, listarSalas, isSalasLoading } = estadoSalas();
 
@@ -10,6 +10,7 @@ const ListaSalas = () => {
 
     return (
         <div>
+            <Navbar/>
             <h1>Salas disponibles</h1>
             {isSalasLoading ? (
                 <p>Cargando salas...</p>

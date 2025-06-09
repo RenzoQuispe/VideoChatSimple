@@ -1,6 +1,12 @@
+import Navbar from "../componentes/Navbar";
 const Ajustes = () => {
     return(
-        <div>Ajustes</div>
+        <div>
+            <Navbar/>
+            <div>
+                Ajustes
+            </div>
+        </div>
     )
 }
 export default Ajustes;
