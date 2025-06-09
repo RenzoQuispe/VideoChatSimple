@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 export const estadoSalas = create((set, get) => ({
     Salas : [],
     isSalasLoading: false,
+    isCreandoSala: false,
+    setIsCreandoSala: (estado) => set({ isCreandoSala: estado }),
     listarSalas : async () => {
         set({ isSalasLoading: true });
         try {
