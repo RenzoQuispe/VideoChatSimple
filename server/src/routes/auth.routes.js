@@ -1,7 +1,6 @@
 import express from 'express';
-import { checkAuth, logout, login, register} from "../controllers/auth.controllers.js";
+import { checkAuth, logout, login, register } from "../controllers/auth.controllers.js";
 import { protectRoute } from "../middlewares/auth.middleware.js";
-
 // enrutador
 const router = express.Router();
 // rutas

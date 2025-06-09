@@ -20,7 +20,7 @@ export const protectRoute = async (req, res, next) => {
 
     // Buscar al usuario en PostgreSQL por ID
     console.log("protectRoute userId:", userId)
-    const result = await pool.query('SELECT id, username, email FROM usuarios WHERE id = $1', [userId]);
+    const result = await pool.query('SELECT id, username, email, fotoperfil, creado_en FROM usuarios WHERE id = $1', [userId]);
     console.log("protectRoute rows:", result.rows)
     if (result.rows.length === 0) {
       return res.status(404).json({ message: "Usuario no encontrado" });

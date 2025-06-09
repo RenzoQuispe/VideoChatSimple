@@ -29,7 +29,8 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 //rutas
 app.use("/api/auth", authRoutes);
 app.use("/api/sala",salaRoutes);
-
+const rutaUploads = process.env.DB_RUTA_IMAGENES;
+app.use('/uploads', express.static(rutaUploads));
 // Leer los certificados
 const key = fs.readFileSync('../certs/key.pem');
 const cert = fs.readFileSync('../certs/cert.pem');
