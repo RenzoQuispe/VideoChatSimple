@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { axiosInstance } from "../lib/axios.js"
 import toast from "react-hot-toast";
 
-const baseURL = "https://videochat.local/api";
+const baseURL = import.meta.env.VITE_API_URL
 
 export const estadoAuth = create((set, get) => ({  //get para una funcion de estadoAuth dentro de una funcion de estadoAuth
     authUser: null,

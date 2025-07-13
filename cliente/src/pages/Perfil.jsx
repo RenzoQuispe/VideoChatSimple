@@ -11,7 +11,7 @@ const Perfil = () => {
                 {/*Contenido */}
                 <div className="w-[300px] ml-105 mt-15">
                     <img
-                        src={authUser.fotoperfil || "fotodefault.png"} //https://videochat.local/uploads/imagen.jpeg
+                        src={authUser.fotoperfil || "fotodefault.png"}
                         alt="Foto de perfil"
                         className="w-32 h-32 rounded-full object-cover mb-5"
                     />
