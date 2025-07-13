@@ -13,12 +13,23 @@ const pool = new Pool({
 });
 
 export const probarConexionDB = async () => {
-    try {
-        pool.query('SELECT NOW()');
-        console.log('Conexión a la base de datos PostgreSQL exitosa');
-    } catch (error) {
-        console.error('Error de conexión a la base de datos:', error);
+    const maxIntentos = 10;
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+  
+    for (let intento = 1; intento <= maxIntentos; intento++) {
+      try {
+        await pool.query('SELECT NOW()');
+        console.log("Conexión a PostgreSQL exitosa");
+        return;
+      } catch (error) {
+        console.error(`Intento ${intento}: No se pudo conectar a PostgreSQL, reintentando ...`);
+        if (intento === maxIntentos) {
+          console.error("Error de conexión a la base de datos:", error);
+          process.exit(1);
+        }
+        await delay(2000); // espera 2 segundos
+      }
     }
-}
-
+  };
+  
 export default pool;

@@ -17,7 +17,7 @@ const app = express();
 //cors
 app.use(
     cors({
-        origin: 'http://localhost:5173',
+        origin: true,
         credentials: true
     })
 );
@@ -32,8 +32,8 @@ app.use("/api/sala",salaRoutes);
 const rutaUploads = process.env.DB_RUTA_IMAGENES;
 app.use('/uploads', express.static(rutaUploads));
 // Leer los certificados
-const key = fs.readFileSync('../certs/key.pem');
-const cert = fs.readFileSync('../certs/cert.pem');
+const key = fs.readFileSync('./certs/key.pem');
+const cert = fs.readFileSync('./certs/cert.pem');
 
 // Crear el server HTTPS
 const server = https.createServer({ key, cert }, app);
