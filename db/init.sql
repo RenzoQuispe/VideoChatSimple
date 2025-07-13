@@ -41,3 +41,14 @@ GRANT ALL PRIVILEGES ON TABLE salas TO admin_videochat;
 GRANT ALL PRIVILEGES ON TABLE mensajes TO admin_videochat;
 GRANT ALL PRIVILEGES ON TABLE usuarios TO admin_videochat;
 GRANT ALL PRIVILEGES ON TABLE usuarios_salas TO admin_videochat;
+-- Crear salas de prueba
+INSERT INTO salas (nombre, contraseña, creado_por) VALUES ('Sala1', 'abc123', 14);
+INSERT INTO salas (nombre, contraseña, creado_por) VALUES ('Sala2', NULL,15);
+INSERT INTO salas (nombre, contraseña, creado_por) VALUES ('Sala3', 'claveSegura', 16);
+INSERT INTO salas (nombre, contraseña, creado_por) VALUES ('Sala4', NULL, 17);
+INSERT INTO salas (nombre, contraseña, creado_por) VALUES ('Sala5', 'sala123', 18);
+INSERT INTO salas (nombre, contraseña, creado_por) VALUES ('Sala6', NULL, 19);
+INSERT INTO salas (nombre, contraseña, creado_por) VALUES ('Sala7', 'qwerty', 20);
+INSERT INTO salas (nombre, contraseña, creado_por) VALUES ('Sala8', NULL, 21);
+INSERT INTO salas (nombre, contraseña, creado_por) VALUES ('Sala9', 'xyz789', 22);
+INSERT INTO salas (nombre, contraseña, creado_por) VALUES ('Sala10', NULL, 23);
